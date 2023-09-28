@@ -11,6 +11,8 @@ using CustomTagSounds.Behaviours;
 
 namespace CustomTagSounds
 {
+    [BepInDependency("org.legoandmars.gorillatag.utilla", "1.6.7")]
+    [BepInDependency("com.buzzbzzzbzzbzzzthe18th.gorillatag.HoneyLib", "1.0.9")]
     [BepInPlugin(PluginInfo.GUID, PluginInfo.Name, PluginInfo.Version)]
     public class Plugin : BaseUnityPlugin
     {
@@ -52,7 +54,7 @@ namespace CustomTagSounds
                 {
                     while (!webRequest.isDone) await Task.Delay(5);
 
-                    if (!webRequest.isNetworkError && !webRequest.isHttpError)
+                    if (webRequest.result != UnityWebRequest.Result.ConnectionError && webRequest.result != UnityWebRequest.Result.ProtocolError)
                     {
                         returnClip = DownloadHandlerAudioClip.GetContent(webRequest);
                     }
