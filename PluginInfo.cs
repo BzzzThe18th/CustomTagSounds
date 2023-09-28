@@ -8,6 +8,6 @@ namespace CustomTagSounds
     {
         public const string GUID = "com.buzzbzzzbzzbzzzthe18th.gorillatag.customtagsounds";
         public const string Name = "CustomTagSounds";
-        public const string Version = "1.0.0";
+        public const string Version = "1.0.1";
     }
 }
